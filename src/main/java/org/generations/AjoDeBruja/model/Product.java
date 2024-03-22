@@ -1,13 +1,27 @@
 package org.generations.AjoDeBruja.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="productos")
 public class Product {
-	private int id_producto;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id_producto", unique=true, nullable=false)
+	private Long id_producto;
+	@Column(nullable=false)
 	private String nombre;
+	@Column(nullable=false)
 	private String categoria;
+	@Column(nullable=false)
 	private String descripcion;
 	private double precio;
 	private String imagen;
-	private static int total = 0;
 
 	public Product(String nombre, String categoria, String descripcion, double precio, String imagen) {
 		super();
@@ -16,64 +30,59 @@ public class Product {
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.imagen = imagen;
-		Product.total++;
-		id_producto = Product.total;
-	}
+	}//constructor
 
-	public Product() {
-		// TODO Auto-generated constructor stub
-		Product.total++;
-		id_producto = Product.total;
-	}
+	public Product() {	
+	}//constructor vacío
 
-	public int getId_producto() {
+	public Long getId_producto() {
 		return id_producto;
-	}
+	}//getId_producto
 
 	public String getNombre() {
 		return nombre;
-	}
+	}//getNombre
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
+	}//setNombre
 
 	public String getCategoria() {
 		return categoria;
-	}
+	}//getCategoria
 
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
-	}
+	}//setCategoria
 
 	public String getDescripcion() {
 		return descripcion;
-	}
+	}//getDescripcion
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
-	}
+	}//setDescripcion
 
 	public double getPrecio() {
 		return precio;
-	}
+	}//getPrecio
 
-	public void setPrecio(float precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
-	}
+	}//setPrecio
 
 	public String getImagen() {
 		return imagen;
-	}
+	}//getImagen
 
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
-	}
+	}//setImagen
 
 	@Override
 	public String toString() {
 		return "Product [id_producto=" + id_producto + ", nombre=" + nombre + ", categoria=" + categoria
 				+ ", descripcion=" + descripcion + ", precio=" + precio + ", imagen=" + imagen + "]";
-	}
+	}//toString
 
-}
+}//class Product

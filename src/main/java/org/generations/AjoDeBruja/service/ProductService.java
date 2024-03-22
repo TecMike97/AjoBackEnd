@@ -1,60 +1,63 @@
 package org.generations.AjoDeBruja.service;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import org.generations.AjoDeBruja.model.Product;
+import org.generations.AjoDeBruja.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProductService {
-	public final ArrayList<Product> list = new ArrayList<Product>();
-
-	public ProductService() {
-		list.add(new Product("Cacao en Polvo", "Comestibles",
-				"Cacao orgánico en polvo sin azúcar, colorantes ni conservadores. <br/> Presentación: 150g.", 100.00,
-				"ADB_CacaoPolvo.png"));
-		list.add(new Product("Café Verde", "Comestibles",
-				"Granos de café sin tostar en polvo, para el óptimo aprovechamiento de sus propiedades.<br/> Presentación: 150g.", 85.00,
-				"ADB_CafeVerde"));
-		list.add(new Product("Crema de Almendras", "Comestible",
-				"Crema de almendras naturales, libre de aceites, azúcar, colorantes y conservadores.<br/> Presentación: 250g.", 150.00,
-				"ADB_CAlmendra.png"));
-		list.add(new Product("Crema de Cacahuate", "Comestibles",
-				"CCrema de almendras naturales, libre de aceites, azúcar, colorantes y conservadores.<br/> Presentación: 250g.", 150.00,
-				"ADB_CCacahuate1.png"));
-	}// constructor
-
-	public ArrayList<Product> getAllProducts() {
-		return list;
+	private final ProductRepository productRepository;
+	@Autowired
+	public ProductService(ProductRepository productRepository) {
+		this.productRepository = productRepository;
+	}//constructor
+	
+	public List<Product> getAllProducts() {
+		return productRepository.findAll();
 	}// getAllProducts
 
-	public Product getProduct(int prodId) {
-		Product tmpProd = null;
-		for (Product product : list) {
-			if (product.getId_producto() == prodId)
-				tmpProd = product;
-			break;
-		} // forEach
-		return tmpProd;
-	}// getProduct
+	public Product getProduct(Long prodId) {
+		return productRepository.findById(prodId).orElseThrow(
+				()-> new IllegalArgumentException("El producto con el id ["
+						+ prodId + "] no existe.") //este mensaje es para nosotros en consola, no para el usuario
+				);//orElseThrow es cuando te aparece un Optional
+	}//getProduct
 
 	public Product addProduct(Product product) {
-		Product tmpProd = null;
-		if (list.add(product)) {
-			tmpProd = product;
-		} // if
-		return tmpProd;
-	}// addProduct
+		Optional<Product> tmpProd= productRepository.findByName(product.getNombre());
+		if(tmpProd.isEmpty()) {
+			return productRepository.save(product);
+		}else {
+			System.out.println("Ya existe el producto con el nombre ["+
+					product.getNombre() + "]");
+			return null;
+		}//if
+	}//addProduct
 
-	public Product deleteProduct(int prodId) {
+	public Product deleteProduct(Long prodId) {
 		Product tmpProd = null;
-		for (Product product : list) {
-			if (product.getId_producto() == prodId) {
-				tmpProd = product;
-				list.remove(product);// borrar el producto de la lista
-				break;
-			} // if ==
-		} // forEach
+		if(productRepository.existsById(prodId)) {
+			tmpProd=productRepository.findById(prodId).get();
+			productRepository.deleteById(Long.valueOf(prodId));
+		}//if
 		return tmpProd;
-	}// deleteProduct
-}
+	}//deleteProduct
+	
+	public Product updateProduct(Long prodId, String nombre, String descripcion, String imagen, Double precio) {
+		Product product = null;
+		if(productRepository.existsById(prodId)) {
+			product=productRepository.findById(prodId).get();
+			if(nombre.length()!=0) product.setNombre(nombre);
+			if(descripcion.length()!=0) product.setDescripcion(descripcion);
+			if(imagen.length()!=0) product.setImagen(imagen);
+			if(precio.doubleValue()>0) product.setPrecio(precio);
+			productRepository.save(product);
+			}//if exist
+		
+		return product;
+	}//updateProduct
+}//class ProductService

@@ -1,5 +1,11 @@
 package org.generations.AjoDeBruja.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+//POJO Plain Old Java Object
+@Entity
+@Table(name="registros")
 public class Registros {
 	private int id_registro;
 	private String nombre_completo;

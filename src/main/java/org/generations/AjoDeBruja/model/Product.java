@@ -7,12 +7,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//POJO Plain Old Java Object
 @Entity
 @Table(name="productos")
 public class Product {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_producto", unique=true, nullable=false)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name="id", unique=true,nullable=false)
 	private Long id_producto;
 	@Column(nullable=false)
 	private String nombre;

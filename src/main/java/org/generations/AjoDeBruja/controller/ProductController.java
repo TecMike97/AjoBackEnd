@@ -4,8 +4,6 @@ import java.util.List;
 
 import org.generations.AjoDeBruja.model.Product;
 import org.generations.AjoDeBruja.service.ProductService;
-//import org.generation.ecommerce.model.Product;
-//import org.generation.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @RestController
-@RequestMapping(path="/api/products/") //http://localhost:8080/api/products/
+@RequestMapping(path = "/api/products/") // http://localhost:8080/api/products/
 public class ProductController {
 
-	private final ProductService productService;//variable constante
+	private final ProductService productService;// variable constante
+
 	@Autowired
 	public ProductController(ProductService productService) {
 		this.productService=productService;

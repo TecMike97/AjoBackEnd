@@ -11,11 +11,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductService {
 	private final ProductRepository productRepository;
+
 	@Autowired
 	public ProductService(ProductRepository productRepository) {
 		this.productRepository = productRepository;
 	}//constructor
-	
 	public List<Product> getAllProducts() {
 		return productRepository.findAll();
 	}// getAllProducts

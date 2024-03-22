@@ -1,5 +1,11 @@
 package org.generations.AjoDeBruja.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+//POJO Plain Old Java Object
+@Entity
+@Table(name="pedidos")
 public class Pedidos {
 	private int id_pedido;
 	private int cantidad_productos;

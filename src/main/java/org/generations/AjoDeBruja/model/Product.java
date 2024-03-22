@@ -1,13 +1,27 @@
 package org.generations.AjoDeBruja.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+//POJO Plain Old Java Object
+@Entity
+@Table(name="productos")
 public class Product {
-	private int id_producto;
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name="id", unique=true,nullable=false)
+	private Long id_producto;
+	@Column(nullable=false)
 	private String nombre;
+	@Column(nullable=false)
 	private String categoria;
 	private String descripcion;
 	private double precio;
 	private String imagen;
-	private static int total = 0;
 
 	public Product(String nombre, String categoria, String descripcion, double precio, String imagen) {
 		super();
@@ -16,17 +30,13 @@ public class Product {
 		this.descripcion = descripcion;
 		this.precio = precio;
 		this.imagen = imagen;
-		Product.total++;
-		id_producto = Product.total;
 	}
 
 	public Product() {
 		// TODO Auto-generated constructor stub
-		Product.total++;
-		id_producto = Product.total;
 	}
 
-	public int getId_producto() {
+	public Long getId_producto() {
 		return id_producto;
 	}
 
@@ -58,7 +68,7 @@ public class Product {
 		return precio;
 	}
 
-	public void setPrecio(float precio) {
+	public void setPrecio(double precio) {
 		this.precio = precio;
 	}
 

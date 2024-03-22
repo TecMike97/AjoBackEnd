@@ -1,60 +1,68 @@
 package org.generations.AjoDeBruja.service;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import org.generations.AjoDeBruja.model.Product;
+import org.generations.AjoDeBruja.repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ProductService {
-	public final ArrayList<Product> list = new ArrayList<Product>();
+	private final ProductRepository productRepository;
 
-	public ProductService() {
-		list.add(new Product("Cacao en Polvo", "Comestibles",
-				"Cacao orgánico en polvo sin azúcar, colorantes ni conservadores. <br/> Presentación: 150g.", 100.00,
-				"ADB_CacaoPolvo.png"));
-		list.add(new Product("Café Verde", "Comestibles",
-				"Granos de café sin tostar en polvo, para el óptimo aprovechamiento de sus propiedades.<br/> Presentación: 150g.", 85.00,
-				"ADB_CafeVerde"));
-		list.add(new Product("Crema de Almendras", "Comestible",
-				"Crema de almendras naturales, libre de aceites, azúcar, colorantes y conservadores.<br/> Presentación: 250g.", 150.00,
-				"ADB_CAlmendra.png"));
-		list.add(new Product("Crema de Cacahuate", "Comestibles",
-				"CCrema de almendras naturales, libre de aceites, azúcar, colorantes y conservadores.<br/> Presentación: 250g.", 150.00,
-				"ADB_CCacahuate1.png"));
-	}// constructor
+	@Autowired
+	public ProductService(ProductRepository productRepository) {
+		this.productRepository = productRepository;
+	}
 
-	public ArrayList<Product> getAllProducts() {
-		return list;
+	public List<Product> getAllProducts() {
+		return productRepository.findAll();
 	}// getAllProducts
 
-	public Product getProduct(int prodId) {
-		Product tmpProd = null;
-		for (Product product : list) {
-			if (product.getId_producto() == prodId)
-				tmpProd = product;
-			break;
-		} // forEach
-		return tmpProd;
+	public Product getProduct(Long id_producto) {
+		return productRepository.findById(id_producto).orElseThrow(
+				() -> new IllegalArgumentException("El producto con el id [" + id_producto + "] no existe"));
 	}// getProduct
 
-	public Product addProduct(Product product) {
+	public Product deleteProduct(Long id_producto) {
 		Product tmpProd = null;
-		if (list.add(product)) {
-			tmpProd = product;
+		if (productRepository.existsById(id_producto)) {
+			tmpProd = productRepository.findById(id_producto).get();
+			productRepository.deleteById(id_producto);
 		} // if
 		return tmpProd;
+	}// deleteProduct
+
+	public Product addProduct(Product product) {
+		Optional<Product> tmpProd = productRepository.findByName(product.getNombre());
+		if (tmpProd.isEmpty()) {
+			return productRepository.save(product);
+		} else {
+			System.out.println("Ya existe el producto con el nombre [" + product.getNombre() + "]");
+			return null;
+		} // if
 	}// addProduct
 
-	public Product deleteProduct(int prodId) {
-		Product tmpProd = null;
-		for (Product product : list) {
-			if (product.getId_producto() == prodId) {
-				tmpProd = product;
-				list.remove(product);// borrar el producto de la lista
-				break;
-			} // if ==
-		} // forEach
-		return tmpProd;
-	}// deleteProduct
+	public Product updateProduct(Long id_producto, String nombre, String categoria, String descripcion, String imagen,
+			Double precio) {
+		Product product = null;
+		if (productRepository.existsById(id_producto)) {
+			product = productRepository.findById(id_producto).get();
+			if (nombre.length() != 0)
+				product.setNombre(nombre);
+			if (categoria.length() != 0)
+				product.setCategoria(categoria);
+			if (descripcion.length() != 0)
+				product.setDescripcion(descripcion);
+			if (imagen.length() != 0)
+				product.setImagen(imagen);
+			if (precio.doubleValue() > 0)
+				product.setPrecio(precio);
+			productRepository.save(product);
+		} // exist
+		return product;
+	}// updateProduct
+
 }

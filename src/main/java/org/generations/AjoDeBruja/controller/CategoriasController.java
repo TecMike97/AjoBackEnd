@@ -24,11 +24,17 @@ public class CategoriasController {
 	public CategoriasController(CategoriasService categoriasService) {
 		this.categoriasService = categoriasService;
 	}
+	
+	//GET
+	@GetMapping
+	public List<Categorias> getProducts() {
+		return categoriasService.getAllCategorias();
+	}
 
 	// GET
 	@GetMapping(path = "{id_categoria}") // http://localhost:8080/api/products/1
-	public List<Categorias> getCategorias() {
-		return categoriasService.getAllCategorias();
+	public Categorias getCategorias(@PathVariable("id_categoria") Long id_categoria) {
+		return categoriasService.getCategorias(id_categoria);
 	}// getProducts
 
 	@PostMapping
@@ -37,15 +43,16 @@ public class CategoriasController {
 	}// addProduct
 
 	// PUT
+	@PutMapping(path = "{id_categoria}") // http://locolhost:8080/ai/products/1
+	public Categorias updateCategorias(@PathVariable("id_categoria") Long id_categoria, @RequestBody Categorias categorias) {
+		return categoriasService.updateCategorias(id_categoria, categorias.getNombre());
+	}// updateProduct
+	
 	// DELETE
 	@DeleteMapping(path = "{id_categoria}") // http://localhost:8080/api/products/1
 	public Categorias deleteCategorias(@PathVariable("id_categoria") Long id_categoria) {
 		return categoriasService.deleteCategorias(id_categoria);
 	}// delete
 
-	@PutMapping(path = "{id_categoria}") // http://locolhost:8080/ai/products/1
-	public Categorias updateCategorias(@PathVariable("id_categoria") Long id_producto, @RequestBody Categorias categorias) {
-		return categoriasService.updateCategorias(id_producto, categorias.getNombre());
-	}// updateProduct
 }
 // updateProduct

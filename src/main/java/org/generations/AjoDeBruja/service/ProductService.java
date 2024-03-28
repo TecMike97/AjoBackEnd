@@ -36,7 +36,7 @@ public class ProductService {
 	}// deleteProduct
 
 	public Product addProduct(Product product) {
-		Optional<Product> tmpProd = productRepository.findByName(product.getNombre());
+		Optional<Product> tmpProd = productRepository.findByNombre(product.getNombre());
 		if (tmpProd.isEmpty()) {
 			return productRepository.save(product);
 		} else {

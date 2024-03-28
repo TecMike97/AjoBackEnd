@@ -21,7 +21,9 @@ public class Product {
 	private String categoria;
 	@Column(nullable=false)
 	private String descripcion;
+	@Column(nullable=false)
 	private double precio;
+	@Column(nullable=false)
 	private String imagen;
 
 	public Product(String nombre, String categoria, String descripcion, double precio, String imagen) {

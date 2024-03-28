@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CategoriasRepository extends JpaRepository<Categorias, Long> {// Esto Tipo de datos se llama Generic
-	Optional<Categorias> findByName(String nombre);
+	Optional<Categorias> findByName(String name);
 }// interface CategoriasRepository

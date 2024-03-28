@@ -1,18 +1,28 @@
 package org.generations.AjoDeBruja.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 //POJO Plain Old Java Object
 @Entity
 @Table(name="registros")
 public class Registros {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_registro", unique = true, nullable = false)
 	private int id_registro;
+	@Column(nullable=false)
 	private String nombre_completo;
+	@Column(nullable=false)
 	private String telefono;
+	@Column(nullable=false)
 	private String email;
+	@Column(nullable=false)
 	private String contraseña;
-	private static int total = 0;
 
 	public Registros(String nombre_completo, String telefono, String email, String contraseña) {
 		super();
@@ -20,14 +30,10 @@ public class Registros {
 		this.telefono = telefono;
 		this.email = email;
 		this.contraseña = contraseña;
-		Registros.total++;
-		id_registro = Registros.total;
 	}
 
 	public Registros() {
 		// TODO Auto-generated constructor stub
-		Registros.total++;
-		id_registro = Registros.total;
 	}
 
 	public int getId_registro() {

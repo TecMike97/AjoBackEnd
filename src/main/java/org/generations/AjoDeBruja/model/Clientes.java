@@ -17,9 +17,13 @@ public class Clientes {
 	private Long id_cliente;
 	@Column(nullable=false)
 	private String nombre;
+	@Column(nullable=false)
 	private String apellido_pa;
+	@Column(nullable=false)
 	private String apellido_ma;
+	@Column(nullable=false)
 	private String email;
+	@Column(nullable=false)
 	private String  telefono;
 
 	public Clientes(String nombre, String apellido_pa, String apellido_ma, String email, String telefono) {

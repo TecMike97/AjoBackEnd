@@ -1,29 +1,35 @@
 package org.generations.AjoDeBruja.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 //POJO Plain Old Java Object
 @Entity
 @Table(name="pedidos")
 public class Pedidos {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_pedido", unique = true, nullable = false)
 	private int id_pedido;
+	@Column(nullable=false)
 	private int cantidad_productos;
+	@Column(nullable=false)
 	private double precio_total;
-	private static int total = 0;
+
 
 	public Pedidos(int cantidad_productos, double precio_total) {
 		super();
 		this.cantidad_productos = cantidad_productos;
 		this.precio_total = precio_total;
-		Pedidos.total++;
-		id_pedido = Pedidos.total;
+		
 	}
 
 	public Pedidos() {
-		// TODO Auto-generated constructor stub
-		Pedidos.total++;
-		id_pedido = Pedidos.total;
+		
 	}
 
 	public int getId_pedido() {

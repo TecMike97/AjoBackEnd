@@ -40,17 +40,17 @@ public class CategoriasService {
 		if (tmpCat.isEmpty()) {
 			return categoriasRepository.save(categorias);
 		} else {
-			System.out.println("Ya existe el producto con el nombre [" + categorias.getNombre() + "]");
+			System.out.println("Ya existe la categoria con el nombre [" + categorias.getNombre() + "]");
 			return null;
 		} // if
 	}// addCategorias
 
-	public Categorias updateCategorias(Long id_categoria, String nombre) {
+	public Categorias updateCategorias(Long id_categoria, String name) {
 		Categorias categorias = null;
 		if (categoriasRepository.existsById(id_categoria)) {
 			categorias = categoriasRepository.findById(id_categoria).get();
-			if (nombre.length() != 0)
-				categorias.setNombre(nombre);
+			if (name.length() != 0)
+				categorias.setNombre(name);
 			categoriasRepository.save(categorias);
 		} // exist
 		return categorias;

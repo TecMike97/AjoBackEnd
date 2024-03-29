@@ -14,7 +14,7 @@ public class Registros {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_registro", unique = true, nullable = false)
-	private int id_registro;
+	private Long id_registro;
 	@Column(nullable=false)
 	private String nombre_completo;
 	@Column(nullable=false)
@@ -30,56 +30,52 @@ public class Registros {
 		this.telefono = telefono;
 		this.email = email;
 		this.contraseña = contraseña;
-	}
+	}//cnstructor
 
 	public Registros() {
 		// TODO Auto-generated constructor stub
-	}
+	}//constrcutor vacío
 
-	public int getId_registro() {
+	public Long getId_registro() {
 		return id_registro;
-	}
-
-	public void setId_registro(int id_registro) {
-		this.id_registro = id_registro;
-	}
+	}//getId_registro
 
 	public String getNombre_completo() {
 		return nombre_completo;
-	}
+	}//getNombre_completo
 
 	public void setNombre_completo(String nombre_completo) {
 		this.nombre_completo = nombre_completo;
-	}
+	}//setNombre_completo
 
 	public String getTelefono() {
 		return telefono;
-	}
+	}//getTelefono
 
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
-	}
+	}//setTelefono
 
 	public String getEmail() {
 		return email;
-	}
+	}//getEmail
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
+	}//setEmail
 
 	public String getContraseña() {
 		return contraseña;
-	}
+	}//getContraseña
 
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
-	}
+	}//setContraseña
 
 	@Override
 	public String toString() {
 		return "Registros [id_registro=" + id_registro + ", nombre_completo=" + nombre_completo + ", telefono="
 				+ telefono + ", email=" + email + ", contraseña=" + contraseña + "]";
-	}
+	}//toString
 
-}
+}//class Registros

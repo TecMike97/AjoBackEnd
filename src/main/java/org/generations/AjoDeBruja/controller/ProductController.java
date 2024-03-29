@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/api/products/") // http://localhost:8080/api/products/
+@RequestMapping(path = "/api/productos/") // http://localhost:8080/api/productos/
 public class ProductController {
 
 	private final ProductService productService;// variable constante
@@ -33,7 +33,7 @@ public class ProductController {
 	
 	
 	//GET
-	@GetMapping (path="{prodId}") //http://localhost:8080/api/products/
+	@GetMapping (path="{prodId}") //http://localhost:8080/api/productos/
 	public Product getProduct(@PathVariable("prodId") Long prodId) {
 		return productService.getProduct(prodId);
 	}//getProduct
@@ -45,7 +45,7 @@ public class ProductController {
 	}//addProduct
 	
 	//DELETE
-	@DeleteMapping (path="{prodId}") //http://localhost:8080/api/products/
+	@DeleteMapping (path="{prodId}") //http://localhost:8080/api/productos/
 	public Product deleteProduct(@PathVariable("prodId") Long prodId) {
 		return productService.deleteProduct(prodId);
 	}//getProduct

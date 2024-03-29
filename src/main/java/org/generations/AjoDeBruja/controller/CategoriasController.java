@@ -19,40 +19,39 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoriasController {
 
 	private final CategoriasService categoriasService;
-
 	@Autowired
 	public CategoriasController(CategoriasService categoriasService) {
 		this.categoriasService = categoriasService;
-	}
+	}//constructor
 	
 	//GET
 	@GetMapping
-	public List<Categorias> getProducts() {
+	public List<Categorias> getAllCategorias() {
 		return categoriasService.getAllCategorias();
-	}
+	}//getAllCategorias
 
 	// GET
-	@GetMapping(path = "{id_categoria}") // http://localhost:8080/api/products/1
-	public Categorias getCategorias(@PathVariable("id_categoria") Long id_categoria) {
-		return categoriasService.getCategorias(id_categoria);
-	}// getProducts
+	@GetMapping(path = "{id_categoria}") // http://localhost:8080/api/products/
+	public Categorias getCategoria(@PathVariable("id_categoria") Long id_categoria) {
+		return categoriasService.getCategoria(id_categoria);
+	}//getCategoria
 
 	@PostMapping
-	public Categorias addCategorias(@RequestBody Categorias categoria) {
-		return categoriasService.addCategorias(categoria);
-	}// addProduct
+	public Categorias addCategoria(@RequestBody Categorias categoria) {
+		return categoriasService.addCategoria(categoria);
+	}//addCategoria
 
 	// PUT
-	@PutMapping(path = "{id_categoria}") // http://locolhost:8080/ai/products/1
-	public Categorias updateCategorias(@PathVariable("id_categoria") Long id_categoria, @RequestBody Categorias categorias) {
-		return categoriasService.updateCategorias(id_categoria, categorias.getNombre());
-	}// updateProduct
+	@PutMapping(path = "{id_categoria}") // http://locolhost:8080/api/products/
+	public Categorias updateCategoria(@PathVariable("id_categoria") Long id_categoria,
+			@RequestBody Categorias categorias) {
+		return categoriasService.updateCategoria(id_categoria, categorias.getNombre());
+	}//updateCategoria
 	
 	// DELETE
-	@DeleteMapping(path = "{id_categoria}") // http://localhost:8080/api/products/1
+	@DeleteMapping(path = "{id_categoria}")// http://locolhost:8080/api/products/1/
 	public Categorias deleteCategorias(@PathVariable("id_categoria") Long id_categoria) {
-		return categoriasService.deleteCategorias(id_categoria);
-	}// delete
+		return categoriasService.deleteCategoria(id_categoria);
+	}//deleteCategoria
 
-}
-// updateProduct
+}//CategoriasController

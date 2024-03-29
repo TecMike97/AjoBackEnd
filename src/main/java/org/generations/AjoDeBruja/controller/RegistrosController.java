@@ -1,6 +1,6 @@
 package org.generations.AjoDeBruja.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.generations.AjoDeBruja.model.Registros;
 import org.generations.AjoDeBruja.service.RegistrosService;
@@ -25,25 +25,25 @@ public class RegistrosController {
 
 	// GET
 	@GetMapping
-	public ArrayList<Registros> getRegistros() {
+	public List<Registros> getAllRegistros() {
 		return registrosService.getAllRegistros();
-	}
+	}//getAllRegistros
 
 	// GET
 	@GetMapping(path = "{regId}") // http://localhost:8080/api/registros/
-	public Registros getRegistros(@PathVariable("regId") int regId) {
-		return registrosService.getRegistros(regId);
-	}
+	public Registros getRegistro(@PathVariable("regId") Long regId) {
+		return registrosService.getRegistro(regId);
+	}//getRegistro
 
 	// POST
 	@PostMapping
-	public Registros addRegistros(@RequestBody Registros registros) {
-		return registrosService.addRegistros(registros);
-	}
+	public Registros addRegistro(@RequestBody Registros registro) {
+		return registrosService.addRegistro(registro);
+	}//addRegistro
 
 	// DELETE
 	@DeleteMapping(path = "{regId}") // http://localhost:8080/api/registros/
-	public Registros deleteRegistros(@PathVariable("regId") int regId) {
-		return registrosService.deleteRegistros(regId);
-	}
-}// RegistrosController
+	public Registros deleteRegistro(@PathVariable("regId") Long regId) {
+		return registrosService.deleteRegistro(regId);
+	}//deleteRegistro
+}//RegistrosController

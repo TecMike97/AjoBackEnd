@@ -1,6 +1,6 @@
 package org.generations.AjoDeBruja.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.generations.AjoDeBruja.model.Pedidos;
 import org.generations.AjoDeBruja.service.PedidosService;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,25 +26,33 @@ public class PedidosController {
 
 	// GET
 	@GetMapping
-	public ArrayList<Pedidos> getPedidos() {
+	public List<Pedidos> getAllPedidos() {
 		return pedidosService.getAllPedidos();
-	}
+	}//getAllPedidos
 
 	// GET
 	@GetMapping(path = "{pedId}") // http://localhost:8080/api/pedidos/
-	public Pedidos getPedidos(@PathVariable("pedId") int pedId) {
-		return pedidosService.getPedidos(pedId);
-	}
+	public Pedidos getPedido(@PathVariable("pedId") Long pedId) {
+		return pedidosService.getPedido(pedId);
+	}//getPedido
 
 	// POST
 	@PostMapping
-	public Pedidos addPedidos(@RequestBody Pedidos pedidos) {
-		return pedidosService.addPedidos(pedidos);
-	}
+	public Pedidos addPedido(@RequestBody Pedidos pedido) {
+		return pedidosService.addPedido(pedido);
+	}//addPedido
 
 	// DELETE
 	@DeleteMapping(path = "{pedId}") // http://localhost:8080/api/pedidos/
-	public Pedidos deletePedidos(@PathVariable("pedId") int pedId) {
-		return pedidosService.deletePedidos(pedId);
-	}
+	public Pedidos deletePedido(@PathVariable("pedId") Long pedId) {
+		return pedidosService.deletePedido(pedId);
+	}//deletePedido
+	
+	//PUT
+	@PutMapping(path="{prodId}")
+	public Pedidos updatePedido(@PathVariable("pedId") Long pedId,
+			@RequestBody Pedidos pedido){
+				return pedidosService.updatePedido(pedId, pedido.getCantidad_productos(),
+						Double.valueOf(pedido.getPrecio_total()));
+			}//updatePedido
 }// PedidosController

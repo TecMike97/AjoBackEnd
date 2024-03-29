@@ -10,7 +10,6 @@ public class CambioContrasena {
 	}//constructor
 	
 	public CambioContrasena() {
-		// TODO Auto-generated constructor stub
 	}//constructor vacío
 	
 	public String getContrasena() {

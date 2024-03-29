@@ -8,6 +8,6 @@ public class AjoDeBrujaApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AjoDeBrujaApplication.class, args);
-	}
+	}//main
 
-}
+}//class AjoDeBrujaApplication

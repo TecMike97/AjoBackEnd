@@ -15,44 +15,46 @@ public class CategoriasService {
 	@Autowired
 	public CategoriasService(CategoriasRepository categoriasRepository) {
 		this.categoriasRepository = categoriasRepository;
-	}
+	}//constructor
 
 	public List<Categorias> getAllCategorias() {
 		return categoriasRepository.findAll();
-	}// getAllCategorias
+	}//getAllCategorias
 
-	public Categorias getCategorias(Long id_categoria) {
+	public Categorias getCategoria(Long id_categoria) {
 		return categoriasRepository.findById(id_categoria).orElseThrow(
-				() -> new IllegalArgumentException("El producto con el id [" + id_categoria + "] no existe"));
-	}// getCategorias
+				() -> new IllegalArgumentException("La categoría con el id [" +
+						id_categoria + "] no existe."));
+	}//getCategoria
+	
+	public Categorias addCategoria(Categorias categoria) {
+		Optional<Categorias> tmpCat = categoriasRepository.findByNombre(categoria.getNombre());
+		if (tmpCat.isEmpty()) {
+			return categoriasRepository.save(categoria);
+		} else {
+			System.out.println("Ya existe la categoria con el nombre [" +
+					categoria.getNombre() + "]");
+			return null;
+		} // if
+	}//addCategoria
 
-	public Categorias deleteCategorias(Long id_categoria) {
+	public Categorias deleteCategoria(Long id_categoria) {
 		Categorias tmpCat = null;
 		if (categoriasRepository.existsById(id_categoria)) {
 			tmpCat = categoriasRepository.findById(id_categoria).get();
 			categoriasRepository.deleteById(id_categoria);
 		} // if
 		return tmpCat;
-	}// deleteCategorias
+	}//deleteCategoria
 
-	public Categorias addCategorias(Categorias categorias) {
-		Optional<Categorias> tmpCat = categoriasRepository.findByNombre(categorias.getNombre());
-		if (tmpCat.isEmpty()) {
-			return categoriasRepository.save(categorias);
-		} else {
-			System.out.println("Ya existe la categoria con el nombre [" + categorias.getNombre() + "]");
-			return null;
-		} // if
-	}// addCategorias
-
-	public Categorias updateCategorias(Long id_categoria, String name) {
-		Categorias categorias = null;
+	public Categorias updateCategoria(Long id_categoria, String nombre) {
+		Categorias categoria = null;
 		if (categoriasRepository.existsById(id_categoria)) {
-			categorias = categoriasRepository.findById(id_categoria).get();
-			if (name.length() != 0)
-				categorias.setNombre(name);
-			categoriasRepository.save(categorias);
+			categoria = categoriasRepository.findById(id_categoria).get();
+			if (nombre.length() != 0)
+				categoria.setNombre(nombre);
+			categoriasRepository.save(categoria);
 		} // exist
-		return categorias;
-	}
-}
+		return categoria;
+	}//updateCategoria
+}//class CategoriasService

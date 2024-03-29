@@ -21,27 +21,26 @@ public class Categorias {
 	public Categorias(String nombre) {
 		super();
 		this.nombre = nombre;
-	}
+	}//constructor
 
 	public Categorias() {
-		// TODO Auto-generated constructor stub
-	}
+	}//constructor vacío
 
 	public Long getId_categoria() {
 		return id_categoria;
-	}
+	}//getId_categoria
 
 	public String getNombre() {
 		return nombre;
-	}
+	}//getNombre
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
+	}//setNombre
 
 	@Override
 	public String toString() {
 		return "Categorias [id_categoria=" + id_categoria + ", nombre=" + nombre + "]";
-	}
+	}//toString
 
-}
+}//class Categorias

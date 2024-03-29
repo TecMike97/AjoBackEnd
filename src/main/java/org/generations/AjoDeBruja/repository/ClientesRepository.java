@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClientesRepository extends JpaRepository<Clientes, Long> {// Esto Tipo de datos se llama Generic
-	Optional<Clientes> findByName(String nombre);
+	Optional<Clientes> findByNombre(String nombre);
 }// interface ClientesRepository

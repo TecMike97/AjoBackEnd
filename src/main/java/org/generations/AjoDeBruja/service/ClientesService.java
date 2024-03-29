@@ -36,7 +36,7 @@ public class ClientesService {
 	}// deleteProduct
 
 	public Clientes addClientes(Clientes clientes) {
-		Optional<Clientes> tmpCli = clientesRepository.findByName(clientes.getNombre());
+		Optional<Clientes> tmpCli = clientesRepository.findByNombre(clientes.getNombre());
 		if (tmpCli.isEmpty()) {
 			return clientesRepository.save(clientes);
 		} else {

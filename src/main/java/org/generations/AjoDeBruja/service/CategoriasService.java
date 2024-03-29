@@ -36,7 +36,7 @@ public class CategoriasService {
 	}// deleteCategorias
 
 	public Categorias addCategorias(Categorias categorias) {
-		Optional<Categorias> tmpCat = categoriasRepository.findByName(categorias.getNombre());
+		Optional<Categorias> tmpCat = categoriasRepository.findByNombre(categorias.getNombre());
 		if (tmpCat.isEmpty()) {
 			return categoriasRepository.save(categorias);
 		} else {

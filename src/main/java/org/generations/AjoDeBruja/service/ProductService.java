@@ -28,8 +28,8 @@ public class ProductService {
 	}//getProduct
 
 	public Product addProduct(Product product) {
-		Optional<Product> tmpProd= productRepository.findByName(product.getNombre());
-		if(tmpProd.isEmpty()) {
+		Optional<Product> tmpProd = productRepository.findByNombre(product.getNombre());
+		if (tmpProd.isEmpty()) {
 			return productRepository.save(product);
 		}else {
 			System.out.println("Ya existe el producto con el nombre ["+

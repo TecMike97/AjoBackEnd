@@ -27,14 +27,14 @@ public class PedidosService {
 	}//getPedido
 
 	public Pedidos addPedido(Pedidos pedido) {
-		Pedidos tmpPed = null;
-		if(pedidosRepository.findById(pedido.getId_pedido()).isEmpty()) {
-			tmpPed = pedidosRepository.save(pedido);
-		}else {
-			System.out.println("Ya existe un pedido con el id ["+
-					pedido.getId_pedido() + "]");
-		}//if
-		return tmpPed;
+	//	Pedidos tmpPed = null;
+	//	if(pedidosRepository.findById(pedido.getId_pedido()).isEmpty()) {
+	//		tmpPed = pedidosRepository.save(pedido);
+	//	}else {
+	//		System.out.println("Ya existe un pedido con el id ["+
+	//				pedido.getId_pedido() + "]");
+	//	}//if
+		return pedidosRepository.save(pedido);
 	}//addPedido
 
 	public Pedidos deletePedido(Long pedId) {

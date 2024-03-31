@@ -49,10 +49,10 @@ public class PedidosController {
 	}//deletePedido
 	
 	//PUT
-	@PutMapping(path="{prodId}")
+	@PutMapping(path="{pedId}")
 	public Pedidos updatePedido(@PathVariable("pedId") Long pedId,
 			@RequestBody Pedidos pedido){
 				return pedidosService.updatePedido(pedId, pedido.getCantidad_productos(),
-						Double.valueOf(pedido.getPrecio_total()));
+						pedido.getPrecio_total());
 			}//updatePedido
 }// PedidosController

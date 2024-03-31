@@ -29,7 +29,6 @@ public class Pedidos {
 	}//constructor
 
 	public Pedidos() {
-		
 	}//constructor vacío
 
 	public Long getId_pedido() {

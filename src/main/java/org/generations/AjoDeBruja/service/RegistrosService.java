@@ -32,7 +32,7 @@ public class RegistrosService {
 			tmpReg = registrosRepository.save(registro);
 		}else {
 			System.out.println("El registro con el email ["+
-					registro.getEmail()+"] ya existe");
+					registro.getEmail()+"] ya existe.");
 		}//if
 		return tmpReg;
 	}//addRegistro
@@ -45,4 +45,24 @@ public class RegistrosService {
 		}//if
 		return registro;
 	}//deleteRegistro
-}
+	
+	public Registros updateRegistro(Long regId, String nombre_completo, String telefono, String email, String contraseña) {
+	    Registros registroExistente = registrosRepository.findById(regId)
+	            .orElseThrow(() -> new IllegalArgumentException("El registro con el id [" + regId + "] no existe."));
+	    
+	    if (nombre_completo != null) {
+	        registroExistente.setNombre_completo(nombre_completo);
+	    }
+	    if (telefono != null) {
+	        registroExistente.setTelefono(telefono);
+	    }
+	    if (email != null) {
+	        registroExistente.setEmail(email);
+	    }
+	    if (contraseña != null) {
+	        registroExistente.setContraseña(contraseña);
+	    }//if
+	    
+	    return registrosRepository.save(registroExistente);
+	}//updateRegistro
+}//class RegistrosService

@@ -35,6 +35,7 @@ public class UsuariosService {
 	public Usuarios addUsuario(Usuarios usuario) {
 		Usuarios tmpUser = null;
 		if (usuariosRepository.findByEmail(usuario.getEmail()).isEmpty()) {
+			usuario.setContrasena(passwordEncoder.encode(usuario.getContrasena()));
 			tmpUser = usuariosRepository.save(usuario);
 		} else {
 			System.out.println("Ya existe un usuario con el email [" + usuario.getEmail() + "]");
@@ -55,8 +56,10 @@ public class UsuariosService {
 		Usuarios tmpUser = null;
 		if (usuariosRepository.existsById(id)) {
 			tmpUser = usuariosRepository.findById(id).get();
-			if (tmpUser.getContrasena().equals(cambioContrasena.getContrasena())) {
-				tmpUser.setContrasena(cambioContrasena.getNcontrasena());
+			//if (tmpUser.getContrasena().equals(cambioContrasena.getContrasena())) {
+			if(passwordEncoder.matches(cambioContrasena.getContrasena(), tmpUser.getContrasena())) {
+				tmpUser.setContrasena(passwordEncoder.encode(cambioContrasena.getNcontrasena()));
+				usuariosRepository.save(tmpUser);
 			} else {
 				System.out.println("updateUsuario - La contraseña del usuario [" + tmpUser.getId() + "] no coincide");
 				tmpUser = null;
@@ -70,7 +73,7 @@ public class UsuariosService {
 		Optional<Usuarios> userByEmail = usuariosRepository.findByEmail(usuario.getEmail());
 		if (userByEmail.isPresent()) {
 			Usuarios tmpUser = userByEmail.get();
-			// if(user.getPassword().equals(tmpUser.getPassword())) {
+			// if(usuario.getContrasena().equals(tmpUser.getContrasena())) {
 			if (passwordEncoder.matches(usuario.getContrasena(), tmpUser.getContrasena())) {// valida si la cifrada
 				return true;
 			} // if equals

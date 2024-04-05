@@ -1,0 +1,188 @@
+html * {
+    background-color: #DEE1B6;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+}
+.navbarimg{
+    background-color: #BD5532;
+    width: 38px;
+    height: 38px;
+  }
+  .navbarimg2{
+    background-color: #BD5532;
+    width: 35px;
+    height: 35px;
+  }
+  .carrito{
+    background-color: #BD5532;
+    margin-left: 10px;
+  }
+.active:hover{
+    text-decoration: underline;
+    text-decoration-color: aliceblue;
+}
+.containerAjo {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E1B866;
+    justify-content: center;
+}
+
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: #DEE1B6;
+    justify-content: center;
+}
+.containerProds{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.mb-3,
+.form-label,
+h1,
+h4,
+h5 {
+    background-color: #E1B866;
+}
+.Titulo{
+    font-family: "Meddon", cursive;
+    font-weight: 100;
+}
+.navbarBgColor {
+    background-color: #BD5532;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+.footerItem1{
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+  .footerItem2{
+      margin-left: 5px;
+      margin-right: 5px;
+  }
+  .footerItem3{
+      margin-top: 18px;
+      margin-left: 5px;
+      margin-right: 10px;
+  }
+.border-info-subtle {
+    border-color: #73C8A9!important;
+}
+
+.navbar-toggler-icon {
+    background-color: #BD5532;
+}
+
+.mb-3 {
+    background-color: #E1B866;
+}
+
+.containerGreen {
+    background-color: #73C8A9;
+    border-radius: 15px;
+}
+.card {
+    margin: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #373B44;
+    position: relative; 
+}
+.card .btn-primary {
+    position: absolute; /* Establece la posición absoluta para el botón de "carrito" */
+    bottom: 10px; /* Ajusta la distancia desde la parte inferior de la tarjeta */
+    left: 50%; /* Centra el botón horizontalmente */
+    width: 250px;
+    transform: translateX(-50%); /* Ajusta el centrado horizontal */
+}
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.card-body {
+    background-color: aliceblue;
+    padding: 20px 15px;
+    text-align: justify;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3px;
+}
+.card-text{
+    background-color: aliceblue;
+    margin-bottom: 30px;
+}
+img {
+    width: 100%;
+    display: block;
+}
+
+.btnCart {
+    background-color: #BD5532;
+    text-align: center;
+    border-radius: 10px;
+}
+.btn{
+    margin-left: 5px;
+}
+
+ i {
+    background-color: #BD5532;
+    color: white;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+.card-description {
+    flex-grow: 1;
+}
+.containerFiltros{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.card-img-top{
+    height: 280px;
+    width: 278px;
+    margin-top: 2px;
+    background-color: aliceblue;
+}
+.card-title{
+    display: flex;
+    justify-content: center;
+    background-color: #373B44;
+    font-weight: bold;
+    color: #DEE1B6;
+}
+.dropdown1, .dropdown2{
+    margin-right: 10px;
+}
+
+html{
+    height: 100%;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+footer{
+    margin-top: auto;
+}

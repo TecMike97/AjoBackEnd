@@ -1,0 +1,212 @@
+html *{
+    background-color: #DEE1B6;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+  }
+  .navbarimg{
+    background-color: #BD5532;
+    position: relative;
+    z-index: 1;
+  }
+  .navbarimg2{
+    background-color: #BD5532;
+    margin-left: 10px;
+  }
+  .carrito{
+    background-color: #BD5532;
+  }
+.active:hover{
+    text-decoration: underline;
+    text-decoration-color: aliceblue;
+}
+  .Titulo{
+    font-family: "Meddon", cursive;
+    font-weight: 400;
+  }
+  .formContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: #373B44; /*container y from*/
+    border-radius: 20px;
+    width: 500px;
+  }
+  .alert {
+    width: 100%;
+    margin-top: -5px;
+    margin-bottom: 10px; /* Ajusta el espacio entre la alerta y el formulario */
+}
+  .navbarBgColor{
+      background-color: #BD5532;
+  }
+  .btn2{
+    color: white;
+  }
+
+  form{
+    max-width: 470px;
+  }
+  footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .footerItem1{
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+  .footerItem2{
+      margin-left: 5px;
+      margin-right: 5px;
+  }
+  .footerItem3{
+      margin-top: 18px;
+      margin-left: 5px;
+      margin-right: 10px;
+  }
+.border-info-subtle {
+    border-color: #73C8A9!important;
+}
+.navbar-toggler-icon{
+    background-color: #BD5532;
+}
+.mb-3{
+    background-color: #E1B866;
+}
+
+.btn{
+color:white;
+border-color: #73C8A9;
+}
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+.form-box {
+    width: 500px;
+    padding: 40px;
+    background-color: aliceblue;
+    text-align: center;
+    border-radius: 20px;
+}
+.Titulo{
+    font-family: "Meddon", cursive;
+    font-weight: 400;
+}
+.form-title {
+    color: #73C8A9;
+    text-transform: uppercase;
+    font-weight: 500;
+    background-color: #373B44;
+    border-radius: 10px;
+}
+
+.form-box input[type="text"],
+.form-box input[type="password"],
+.form-box button[type="submit"],
+.form-box input[type="int"]
+{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    padding: 14px 10px;
+    text-align: center;
+    border: 2PX solid #3742fa;
+    width: 200px;
+    outline: none;
+    color: azure;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+
+.form-box input[type="text"]:focus,
+.form-box input[type="password"]:focus,
+.form-box input[type="int"]:focus
+ {
+    width: 280px;
+    color: rgb(255, 249, 249);
+    border-color: #373B44;
+}
+
+.form-box button[type="submit"] {
+    border: 0;
+    background-color: #BD5532;
+    cursor: pointer;
+    border: 2px solid #3742fa;
+}
+
+.form-box button[type="submit"]:hover {
+    background-color: #3742fa;
+}
+/* Funcion de Alertas PHP
+.bad {
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+    background: url(../img/sellos\ del\ SAT.jpg);
+    background-size: 90%;
+    color: rgb(184, 38, 38);
+}
+*/
+.formContainer {
+  padding: 20px;
+  margin-top: 10px;
+  background-color: #373B44;
+  border-radius: 20px;
+  max-width: 500px;
+}
+.linkRegistro, h4{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #DEE1B6;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrar los elementos verticalmente */
+}
+
+.form-box input,
+.form-box button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.linkLogIn, h4{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #DEE1B6;
+}
+
+html{
+  height: 100%;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+footer{
+  margin-top: auto;
+}
+
+@media (max-width: 600px) {
+  .formContainer {
+    max-width: 100%; /* Cambiar el ancho máximo a 100% para ocupar todo el ancho disponible */
+    border-radius: 0; /* Eliminar el redondeo de los bordes para que se ajuste correctamente en pantallas pequeñas */
+  }
+}

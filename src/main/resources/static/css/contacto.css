@@ -1,0 +1,110 @@
+html *{
+    background-color: #DEE1B6;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+  }
+  .Titulo{
+    font-family: "Meddon", cursive;
+    font-weight: 400;
+  }
+  .navbarimg{
+    background-color: #BD5532;
+    position: relative;
+    z-index: 1;
+  }
+  .navbarimg2{
+    background-color: #BD5532;
+    margin-left: 10px;
+  }
+  .carrito{
+    background-color: #BD5532;
+  }
+.active:hover{
+    text-decoration: underline;
+    text-decoration-color: aliceblue;
+}
+  .containerAjo{
+      margin: 20px;
+      background-color: #DEE1B6;
+      border-radius: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+  }
+  h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #73C8A9;
+  }
+  .containerFormulario{
+    padding: 20px;
+    margin-top: 10px;
+    background-color: #73C8A9; /*container y from*/
+    border-radius: 20px;
+    flex: 1;
+    margin-left: 20px; /* Espacio entre la información de contacto y el formulario */
+  }
+
+  .container{
+    padding: 20px;
+    margin-top: 10px;
+    background-color: #E1B866;
+  }
+  .imgContacto{
+    max-width: 100%;
+    height: 700px;
+    border-radius: 20px;
+  }
+  .mb-3, .form-label, h1, h4, h5{
+    background-color: #E1B866;
+  }
+  .navbarBgColor{
+      background-color: #BD5532;
+  }
+  .containerAjo{
+      display: flex;
+      justify-content: center;
+  }
+  form{
+    background-color: #E1B866;
+  }
+  footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .footerItem1{
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+  .footerItem2{
+      margin-left: 5px;
+      margin-right: 5px;
+  }
+  .footerItem3{
+      margin-top: 18px;
+      margin-left: 5px;
+      margin-right: 10px;
+  }
+.border-info-subtle {
+    border-color: #73C8A9!important;
+}
+.navbar-toggler-icon{
+    background-color: #BD5532;
+}
+.mb-3{
+    background-color: #E1B866;
+}
+
+.sesion-iniciada {
+  background-color: #BD5532;
+  color:red;
+  font-size: small;
+}

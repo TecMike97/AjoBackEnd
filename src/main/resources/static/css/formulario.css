@@ -1,0 +1,99 @@
+html *{
+    background-color: #DEE1B6;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url(https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff) format('woff');
+  }
+  .navbarimg{
+    background-color: #BD5532;
+    position: relative;
+    z-index: 1;
+  }
+  .navbarimg2{
+    background-color: #BD5532;
+    margin-left: 10px;
+  }
+  .carrito{
+    background-color: #BD5532;
+  }
+.active:hover{
+    text-decoration: underline;
+    text-decoration-color: aliceblue;
+}
+  .containerAjo{
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #E1B866;
+  }
+  .container{
+    padding: 20px;
+    margin-top: 10px;
+    background-color: #E1B866;
+  }
+  .mb-3, .form-label, h1, h4, h5{
+    background-color: #E1B866;
+  }
+  .Titulo{
+    font-family: "Meddon", cursive;
+    font-weight: 400;
+  }
+  .navbarBgColor{
+      background-color: #BD5532;
+  }
+  .containerAjo{
+      display: flex;
+      justify-content: center;
+  }
+  footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .footerItem1{
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+  .footerItem2{
+      margin-left: 5px;
+      margin-right: 5px;
+  }
+  .footerItem3{
+      margin-top: 18px;
+      margin-left: 5px;
+      margin-right: 10px;
+  }
+.navbar-toggler-icon{
+    background-color: #BD5532;
+}
+.btn2{
+  color: white;
+}
+.mb-3{
+    background-color: #E1B866;
+}
+
+ .btn {
+        background-color: #BD5532;
+        padding: 10px;
+        text-align: center;
+        border-radius: 15px;
+    }
+
+    html{
+      height: 100%;
+  }
+  body{
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+  }
+  
+  footer{
+      margin-top: auto;
+  }
